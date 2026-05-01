@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<input id="name" placeholder="Enter name">
+<button onclick="saveName()">Save</button>
+<p>Saved Name: <span id="output"></span></p>
+
+<script>
+function saveName() {
+  const name = document.getElementById("name").value;
+  localStorage.setItem("myName", name);
+  loadName();
+}
+
+function loadName() {
+  document.getElementById("output").textContent =
+    localStorage.getItem("myName") || "none";
+}
+
+loadName();
+</script>
+
+</body>
+</html>

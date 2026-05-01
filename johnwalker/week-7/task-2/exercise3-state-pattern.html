@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<button onclick="increment()">+</button>
+<button onclick="decrement()">-</button>
+<p>Count: <span id="count"></span></p>
+
+<script>
+let state = {
+  count: JSON.parse(localStorage.getItem("count")) || 0,
+};
+
+function save() {
+  localStorage.setItem("count", JSON.stringify(state.count));
+}
+
+function increment() {
+  state.count++;
+  save();
+  render();
+}
+
+function decrement() {
+  state.count--;
+  save();
+  render();
+}
+
+function render() {
+  document.getElementById("count").textContent = state.count;
+}
+
+render();
+</script>
+
+</body>
+</html>
